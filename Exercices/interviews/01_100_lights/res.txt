@@ -1,0 +1,21 @@
+1-th person ,  lights : ['on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on']
+the number of light on is : 10
+2-th person ,  lights : ['on', 'off', 'on', 'off', 'on', 'off', 'on', 'off', 'on', 'off']
+the number of light on is : 5
+3-th person ,  lights : ['on', 'off', 'off', 'off', 'on', 'on', 'on', 'off', 'off', 'off']
+the number of light on is : 4
+4-th person ,  lights : ['on', 'off', 'off', 'on', 'on', 'on', 'on', 'on', 'off', 'off']
+the number of light on is : 6
+5-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'on', 'on', 'on', 'off', 'on']
+the number of light on is : 6
+6-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'off', 'on', 'on', 'off', 'on']
+the number of light on is : 5
+7-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'off', 'off', 'on', 'off', 'on']
+the number of light on is : 4
+8-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'off', 'off', 'off', 'off', 'on']
+the number of light on is : 3
+9-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'off', 'off', 'off', 'on', 'on']
+the number of light on is : 4
+10-th person ,  lights : ['on', 'off', 'off', 'on', 'off', 'off', 'off', 'off', 'on', 'off']
+the number of light on is : 3
+the number of light on is : 3

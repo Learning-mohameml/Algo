@@ -2,22 +2,24 @@
 
 ## **1. Introduction**
 
-> La technique de la **fenêtre glissante** est une approche d’optimisation utilisée pour résoudre des problèmes impliquant **des sous-tableaux ou sous-chaînes contigus** dans un tableau ou une chaîne de caractères.
+-   **Définition:**
 
--   Elle permet d’améliorer l’efficacité en évitant des calculs redondants et en réduisant la complexité **de O(n²) à O(n)** dans de nombreux cas.
+    > La technique de la **fenêtre glissante** est une approche d’optimisation utilisée pour résoudre des problèmes impliquant **des sous-tableaux ou sous-chaînes contigus** dans un tableau ou une chaîne de caractères.
 
-## **2. Principe de la technique :**
+    -   Elle permet d’améliorer l’efficacité en évitant des calculs redondants et en réduisant la complexité **de O(n²) à O(n)** dans de nombreux cas.
 
--   Plutôt que de recalculer plusieurs fois une même portion du tableau, **on utilise une `fenêtre` qui se déplace progressivement**.
+-   **Principe de la technique :**
 
--   **Deux types de fenêtres glissantes :**
+    -   Plutôt que de recalculer plusieurs fois une même portion du tableau, **on utilise une `fenêtre` qui se déplace progressivement**.
 
-    1. **Fenêtre de taille fixe** : la fenêtre garde toujours une taille **k** constante.
-    2. **Fenêtre de taille variable** : la taille de la fenêtre change dynamiquement en fonction du problème.
+    -   **Deux types de fenêtres glissantes :**
 
-## **3. Cas d'utilisation et exemples :**
+        1. **Fenêtre de taille fixe** : la fenêtre garde toujours une taille **k** constante.
+        2. **Fenêtre de taille variable** : la taille de la fenêtre change dynamiquement en fonction du problème.
 
-### 3.1 **Exemple 1 : Somme maximale d'un sous-tableau de taille fixe**
+## 2. **Exemples:**
+
+### 2.1 **Exemple 1 : Somme maximale d'un sous-tableau de taille fixe**
 
 > **Problème :** Trouver la somme maximale d'un sous-tableau de taille `k`.
 
@@ -46,10 +48,7 @@
         return max_sum
     ```
 
-    ✅ **Pourquoi c'est efficace ?**  
-    On ne recalcule pas toute la somme à chaque étape, on **ajoute seulement le nouvel élément et enlève l'ancien**.
-
-### 3.2 **Exemple 2 : Sous-chaîne la plus longue sans caractères répétés**
+### 2.2 **Exemple 2 : Sous-chaîne la plus longue sans caractères répétés**
 
 > **Problème :** Trouver la **plus longue sous-chaîne** sans répétition dans une chaîne donnée.
 
@@ -81,7 +80,7 @@
     ✅ **Pourquoi ça marche ?**  
     On ne recommence pas tout à zéro dès qu'on trouve un doublon, on **ajuste simplement `left`**.
 
-### 3.3. **Exemple 3 : Trouver la plus petite sous-chaîne contenant tous les caractères d'un motif**
+### 2.3. **Exemple 3 : Trouver la plus petite sous-chaîne contenant tous les caractères d'un motif**
 
 > **Problème :** Trouver la plus petite sous-chaîne qui contient tous les caractères d’un mot donné.
 

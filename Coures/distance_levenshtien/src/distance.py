@@ -5,7 +5,7 @@
 
 def distance_levenshtein(seq1 , seq2):
 
-    n =len(seq1)
+    n = len(seq1)
     m = len(seq2)
 
     mat_leven = [[0 for _ in range(m+1)] for _ in range(n+1)]
@@ -25,11 +25,11 @@ def distance_levenshtein(seq1 , seq2):
 
     for i in range(1 , n+1) :
         for j in range(1, m+1) :
-            
-            if seq1[i - 1]==seq2[j -1 ] :
-               mat_leven[i][j] =  mat_leven[i-1][j-1] 
+            if seq1[i - 1] == seq2[j -1 ] :
+                mat_leven[i][j] =  mat_leven[i-1][j-1] 
             else :
-               mat_leven[i][j] = 1 + min(mat_leven[i-1][j-1] , mat_leven[i][j-1] , mat_leven[i-1][j]  )
+                mat_leven[i][j] = 1 + min(mat_leven[i-1][j-1] , mat_leven[i][j-1] , mat_leven[i-1][j]  )
+
 
     
     return mat_leven[n][m]

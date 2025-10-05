@@ -1,48 +1,41 @@
-#!/usr/bin/env python3
+def merge(l1 : list[int] , l2 : list[int]) -> list[int] : 
 
 
-def fusion(l1,l2):
+    res = []
+    i1 = 0 
+    i2 = 0 
 
-    "tout d'abord une fonction qui fusion deux liste trieès"
+    while i1 < len(l1) and i2 < len(l2) : 
 
+        if l1[i1] < l2[i2] : 
+            res.append(l1[i1])
+            i1 += 1
+        else : 
+            res.append(l2[i2])
+            i2 += 1 
+    
+    res += l1[i1 :]
+    res += l2[i2 :]
 
-    l=[]
-    i1,i2=0,0
-    while i1<len(l1) and i2<len(l2):
-        if l1[i1]<l2[i2]:
-            l.append(l1[i1])
-            i1+=1
-        else:
-            l.append(l2[i2])
-            i2+=1
-    if i1<len(l1):
-        for i in range(i1,len(l1)):
-            l.append(l1[i])
-    else:
-        for i in range(i2,len(l2)):
-            l.append(l2[i])
-    return l
-
-"test du primere fonction fusion"
-l1=[1,3,5,6,9]
-l2=[2,4,7,8]
-l=fusion(l1,l2)
-print(l)
+    return res 
 
 
-"fonction qui tri une liste par methode fusion   "
+def merge_sort(l  : list[int]) -> list[int] : 
 
-def tri_fusion(l):
-    if len(l)<=1:
-        return l
-    else:
-        m=len(l)//2
-        return  fusion(tri_fusion(l[m:]),tri_fusion(l[:m]))
+    if len(l) <= 1: 
+        return l 
 
-"test de la fonction tri_fusion "
-l=[1,4,2,6,7,3,2]
-L=tri_fusion(l)
-print(L)
+    mid =  len(l) // 2 
+
+    left_sort = merge_sort(l[:mid])
+    right_sort = merge_sort(l[mid:]) 
+    return merge(left_sort , right_sort)
 
 
-            
+
+
+# Test : 
+
+l = [1,4,2,6,7,3,2]
+l_sort = merge_sort(l)
+print(l_sort)
