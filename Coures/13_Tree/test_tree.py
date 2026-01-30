@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Callable , Iterable , Any 
 import time 
 import traceback
-from main import TreeNode
+from tree import TreeNode
 
 GREEN = "\033[92m"
 RED = "\033[91m"
@@ -253,11 +253,156 @@ def test_df_iter_postorder():
             ),
             TreeNode(3)
     )
+
     expected = [4,5,2,3,1]
     vals = tree.dfs(methode_type="iter",dfs_type="postorder")
     print(f"vals : {vals}")
 
     assert vals == expected
+
+def test_get_leaf_values():
+
+    tree = TreeNode(
+            1,
+            TreeNode(
+                2 , 
+                TreeNode(4),
+                TreeNode(5)
+            ),
+            TreeNode(3)
+    )
+
+    exc_ = [4,5,3]
+
+    leaf_values = tree.get_leaf_values()
+
+    print(f"leaf_values : {leaf_values}")
+
+
+    assert leaf_values == exc_ 
+
+def test_get_sum_per_path():
+
+    tree = TreeNode(
+            1,
+            TreeNode(
+                2 , 
+                TreeNode(3),
+                TreeNode(1)
+            ),
+            TreeNode(
+                4,
+                TreeNode(5)
+            )
+    )
+
+    exc_ = [6,4,10]
+
+    sum_per_path = tree.get_sum_per_path()
+
+    print(f"sum per path of tree is {sum_per_path}")
+
+    assert sum_per_path == exc_ 
+
+
+
+
+
+def test_is_valid_BST(): 
+    tree = TreeNode(
+        10,
+        TreeNode(
+            5,
+            TreeNode(
+                3,
+                TreeNode(1)
+            ),
+        ),
+        TreeNode(
+            12,
+            None,
+            TreeNode(14)
+
+        )
+    )
+    tree.print()
+    is_valid = tree.is_valide_bst()
+
+    print(f"is valide BST : {is_valid}")
+
+    assert is_valid == True 
+
+
+    tree = TreeNode(
+            1,
+            TreeNode(
+                2 , 
+                TreeNode(3),
+                TreeNode(1)
+            ),
+            TreeNode(
+                4,
+                TreeNode(5)
+            )
+    )
+
+    tree.print()
+    is_valid = tree.is_valide_bst()
+
+    print(f"is valide BST : {is_valid}")
+
+    assert is_valid == False 
+
+
+def test_bfs_level_order() : 
+
+    tree = TreeNode(
+            1,
+            TreeNode(
+                2 , 
+                TreeNode(3),
+                TreeNode(1)
+            ),
+            TreeNode(
+                4,
+                TreeNode(5)
+            )
+    )
+
+    tree.print()
+
+    exc_ = [1 , 2 , 4 , 3, 1 , 5]
+    bfs_order = tree.bfs_level_order()
+
+    print(f"BFS level order : {bfs_order}")
+
+    assert bfs_order == exc_
+
+
+def test_bfs_levels() : 
+
+    tree = TreeNode(
+            1,
+            TreeNode(
+                2 , 
+                TreeNode(3),
+                TreeNode(1)
+            ),
+            TreeNode(
+                4,
+                TreeNode(5)
+            )
+    )
+
+
+    exc_ = [[1] , [2 , 4] , [3, 1 , 5]]
+    bfs_order = tree.bfs_levels()
+
+    print(f"BFS levels : {bfs_order}")
+
+    assert bfs_order == exc_
+
+
 
 
 if __name__ == "__main__":
@@ -271,7 +416,12 @@ if __name__ == "__main__":
         test_df_rec_postorder,
         test_df_iter_preorder,
         test_df_iter_inorder,
-        test_df_iter_postorder
+        test_df_iter_postorder,
+        test_get_leaf_values,
+        test_get_sum_per_path ,
+        test_is_valid_BST,
+        test_bfs_level_order ,
+        test_bfs_levels, 
     ]
 
     run_functions(tests)
